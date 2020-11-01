@@ -1,34 +1,22 @@
 import "./index.css";
-import { Button, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyle = makeStyles({
-  hstyle: {
-    fontStyle: "oblique",
-    color: "red",
-  },
-  buttonStyle: {
-    color: "green",
-    border: 0,
-  },
-});
+import { Grid } from "@material-ui/core";
+import Header from "./Header";
+import Content from "./Content";
 
 function App() {
-  const classes = useStyle();
-
   return (
-    <div className="App">
-      <Typography className={classes.hstyle} variant="h2" color="primary">
-        Hello there
-      </Typography>
-      <Button
-        variant="outlined"
-        color="secondary"
-        className={classes.buttonStyle}
-      >
-        Experimental Button
-      </Button>
-    </div>
+    <Grid container direction="column">
+      <Grid item>
+        <Header />
+      </Grid>
+      <Grid item container>
+        <Grid item xs={0} sm={2} />
+        <Grid item xs={12} sm={8}>
+          <Content />
+        </Grid>
+        <Grid item xs={0} sm={2} />
+      </Grid>
+    </Grid>
   );
 }
 
